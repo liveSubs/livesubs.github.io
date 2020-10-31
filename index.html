@@ -15,6 +15,16 @@
 					<span>LiveSubs</span>
 				</div>
 			</header>
+			<div id="main">
+				<div class="user">
+					<div class="logo">
+						<img src="https://yt3.ggpht.com/a/AATXAJwTuzNgKRSLVIOcVTVGGr_xFKgo8LFSQF163hCKSQ=s88-c-k-c0x00ffffff-no-rj" alt="">
+					</div>
+					<div class="name">
+						<span>PewDiePie</span>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 	<script type="text/javascript">
@@ -22,7 +32,7 @@
 		request.open("GET", "config.json", false);
 		request.send(null);
 		var config = JSON.parse(request.responseText);
-		document.title = config.name;
+		document.title = config.title;
 	</script>
 </body>
 </html>
