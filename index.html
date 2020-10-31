@@ -7,7 +7,7 @@
 	<link rel="stylesheet/less" type="text/css" href="main.less">
 	<script src="js/less.js"></script>
 	<script src="js/vue.js"></script>
-	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<script src="js/axios.js"></script>
 </head>
 <body>
 	<div id="wrap">
@@ -20,10 +20,10 @@
 			<div id="main">
 				<div class="user">
 					<div class="logo">
-						<img src="https://yt3.ggpht.com/a/AATXAJwTuzNgKRSLVIOcVTVGGr_xFKgo8LFSQF163hCKSQ=s88-c-k-c0x00ffffff-no-rj" alt="">
+						<img v-bind:src="logo" alt="">
 					</div>
 					<div class="name">
-						<span>PewDiePe</span>
+						<span>{{ name }}</span>
 					</div>
 					<div class="data">
 						<div class="block">
@@ -40,62 +40,12 @@
 						</div>
 					</div>
 					<div class="enter">
-						<input  v-on:input="change" type="text" placeholder="Enter username or URL">
+						<input  v-on:input="change" type="text" placeholder="Enter channel url">
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	<script>
-		new Vue({
-			el: '.user',
-			data: {
-				views: null,
-				subs: null,
-				videos: null,
-				user_key: ''
-			},
-			methods: {
-				update: function () {
-					axios
-				      .get('https://www.googleapis.com/youtube/v3/channels?part=statistics&id=' + user_key + '&key=AIzaSyBzK5GgF-aScjm4MNJh_Fnuugyxowouz-0')
-				      .then(response => (
-				      	this.views = response.data.items[0].statistics.viewCount,
-				      	this.subs = response.data.items[0].statistics.subscriberCount,
-				      	this.videos = response.data.items[0].statistics.videoCount
-		   	   ))
-				},
-				change: function (event) {
-					user_key = event.target.value;
-					this.update();
-				}
-			}
-		})
-	</script>
-	<!-- <script type="text/javascript">
-		var request = new XMLHttpRequest();
-		request.open("GET", "config.json", false);
-		request.send(null);
-		var config = JSON.parse(request.responseText);
-		document.title = config.title;
-	</script>
-
-	<script>
-		const subCount = document.getElementById('sub_count');
-
-		let getSubscribers = () => {
-			fetch(`https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${user_key}&key=${api_key}`)
-			.then(response => {
-				return response.json()
-			})
-			.then(data => {
-				subCount.innerHTML = data["items"][0].statistics.subscriberCount;
-			})
-		}
-
-		
-	</script> -->
-	
-	<!-- <script src="js/core.js"></script> -->
+	<script src="js/core.js"></script>
 </body>
 </html>
