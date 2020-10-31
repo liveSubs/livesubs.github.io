@@ -1,1 +1,0 @@
-<?php $config = array('title' => 'liveSubs'); ?>
