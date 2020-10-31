@@ -6,7 +6,7 @@ new Vue ({
 		videos: null,
 		name: null,
 		logo: null,
-		user_key: ''
+		user_key: null
 	},
 	methods: {
 		update: function () {
@@ -24,5 +24,9 @@ new Vue ({
 			user_key = event.target.value;
 			this.update();
 		}
+	},
+	mounted() {
+		user_key = 'UCiGm_E4ZwYSHV3bcW1pnSeQ';
+		this.update();
 	}
 })
