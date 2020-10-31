@@ -51,5 +51,24 @@
 		var config = JSON.parse(request.responseText);
 		document.title = config.title;
 	</script>
+
+	<script>
+		const api_key = 'AIzaSyBzK5GgF-aScjm4MNJh_Fnuugyxowouz-0';
+		const user_key = 'UC-lHJZR3Gqxm24_Vd_AJ5Yw';
+
+		const subCount = document.getElementById('sub_count');
+
+		let getSubscribers = () => {
+			fetch(`https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${user_key}&key=${api_key}`)
+			.then(response => {
+				return response.json()
+			})
+			.then(data => {
+				subCount.innerHTML = data["items"][0].staticstics.subscriberCount;
+			})
+		}
+
+		getSubscribers();
+	</script>
 </body>
 </html>
