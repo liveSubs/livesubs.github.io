@@ -6,6 +6,7 @@
 	<title>LiveSubs</title>
 	<link rel="stylesheet/less" type="text/css" href="main.less">
 	<script src="js/less.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
 </head>
 <body>
 	<div id="wrap">
@@ -18,7 +19,7 @@
 			<div id="main">
 				<div class="user">
 					<div class="logo">
-						<img src="https://yt3.ggpht.com/a/AATXAJwTuzNgKRSLVIOcVTVGGr_xFKgo8LFSQF163hCKSQ=s88-c-k-c0x00ffffff-no-rj" alt="">
+						<img @click="subs='1'" src="https://yt3.ggpht.com/a/AATXAJwTuzNgKRSLVIOcVTVGGr_xFKgo8LFSQF163hCKSQ=s88-c-k-c0x00ffffff-no-rj" alt="">
 					</div>
 					<div class="name">
 						<span></span>
@@ -28,8 +29,8 @@
 							<span>0</span>
 							<label>views</label>
 						</div>
-						<div class="block">
-							<span id="sub_count">0</span>
+						<div class="block" id="sub_count">
+							<span @click="subs='1'" id="">{{ counter }}</span>
 							<label>Subscribers</label>
 						</div>
 						<div class="block">
@@ -38,13 +39,26 @@
 						</div>
 					</div>
 					<div class="enter">
-						<input type="text" placeholder="Enter username or URL">
+						<input  v-on:input="update()" type="text" placeholder="Enter username or URL">
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	<script type="text/javascript">
+	<script>
+		new Vue({
+			el: '.user',
+			data: {
+				counter: 0
+			},
+			methods: {
+		    update () {
+		      this.counter = 123;
+		    }
+		  }
+		})
+	</script>
+	<!-- <script type="text/javascript">
 		var request = new XMLHttpRequest();
 		request.open("GET", "config.json", false);
 		request.send(null);
@@ -53,9 +67,6 @@
 	</script>
 
 	<script>
-		const api_key = 'AIzaSyBzK5GgF-aScjm4MNJh_Fnuugyxowouz-0';
-		const user_key = 'UCK9rdnuXYIW3mhBU8k1uotg';
-
 		const subCount = document.getElementById('sub_count');
 
 		let getSubscribers = () => {
@@ -69,6 +80,8 @@
 		}
 
 		getSubscribers();
-	</script>
+	</script> -->
+	
+	<!-- <script src="js/core.js"></script> -->
 </body>
 </html>
