@@ -6,6 +6,9 @@
 	<title>ThisSite</title>
 </head>
 <body>
-	
+	<script type="text/javascript">
+		const config = JSON.Parse('config.json');
+		document.getElementsByTagName('title').innerText = config.name;
+	</script>
 </body>
 </html>
