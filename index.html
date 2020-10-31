@@ -8,10 +8,11 @@
 <body>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script type="text/javascript">
-		const config = $.getJSON("config.json", function(data) {
-			document.title = config.name;
-		});
-		
+		var request = new XMLHttpRequest();
+		request.open("GET", "config.json", false);
+		request.send(null);
+		var config = JSON.parse(request.responseText);
+		document.title = config.name;
 	</script>
 </body>
 </html>
