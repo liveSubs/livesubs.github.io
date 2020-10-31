@@ -6,12 +6,14 @@
 	<title>ThisSite</title>
 </head>
 <body>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script type="text/javascript">
-		var request = new XMLHttpRequest();
-	   request.open("GET", "config.json", false);
-	   request.send(null);
-	   var config = JSON.parse(request.responseText);
-		document.getElementsByTagName("title")[0].innerText = "SiteWeb";
+		document.getElementsByTagName('title').InnerText = "html";
+
+		var json = $.getJSON("config.json", function(data) {
+			
+		});
+		var config = JSON.parse(json);
 	</script>
 </body>
 </html>
