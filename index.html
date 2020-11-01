@@ -2,6 +2,7 @@
 <html lang="ru">
 <head>
 	<meta charset="UTF-8">
+	<meta name="description" content="Live counter subscribers, views and videos youtube.">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="google-site-verification" content="GweggJDTsf4rypKuCUT9KoP8f5Q-KupAC1k6CoL3g1A" />
 	<title>LiveSubs</title>
@@ -21,7 +22,9 @@
 			<div id="main">
 				<div class="user">
 					<div class="logo">
-						<img v-bind:src="logo" alt="">
+						<a v-bind:href="url" target="_blank">
+							<img v-bind:src="logo" alt="">
+						</a>
 					</div>
 					<div class="name">
 						<span>{{ name }}</span>
@@ -31,7 +34,7 @@
 							<span class="blue">{{ views }}</span>
 							<label>views</label>
 						</div>
-						<div class="block" id="sub_count">
+						<div class="block">
 							<span class="yellow">{{ subs }}</span>
 							<label>Subscribers</label>
 						</div>

@@ -6,6 +6,7 @@ new Vue ({
 		videos: null,
 		name: null,
 		logo: null,
+		url: null,
 		user_key: null
 	},
 	methods: {
@@ -17,7 +18,8 @@ new Vue ({
 					this.subs = response.data.items[0].statistics.subscriberCount,
 					this.videos = response.data.items[0].statistics.videoCount,
 					this.name = response.data.items[0].snippet.title,
-					this.logo = response.data.items[0].snippet.thumbnails.medium.url
+					this.logo = response.data.items[0].snippet.thumbnails.medium.url,
+					this.url = 'https://www.youtube.com/channel/' + response.data.items[0].id
 				))
 		},
 		change: function (event) {
