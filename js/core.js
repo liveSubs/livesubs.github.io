@@ -11,9 +11,9 @@ new Vue ({
 	},
 	methods: {
 		update () {
-			const string = user_key;
-			const substring = 'https://www.youtube.com/channel/';
-			var user = string.replace(substring,'');
+			const adrress = user_key;
+			const pattern = /\b(UC).{22}/;
+			const user = adrress.match(pattern);
 			axios
 				.get('https://www.googleapis.com/youtube/v3/channels?part=statistics&part=snippet&id=' + user + '&key=AIzaSyBzK5GgF-aScjm4MNJh_Fnuugyxowouz-0')
 				.then(response => (
