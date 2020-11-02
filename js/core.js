@@ -10,7 +10,7 @@ new Vue ({
 		user_key: null
 	},
 	methods: {
-		update: function () {
+		update () {
 			axios
 				.get('https://www.googleapis.com/youtube/v3/channels?part=statistics&part=snippet&id=' + user_key + '&key=AIzaSyBzK5GgF-aScjm4MNJh_Fnuugyxowouz-0')
 				.then(response => (
@@ -22,7 +22,7 @@ new Vue ({
 					this.url = 'https://www.youtube.com/channel/' + response.data.items[0].id
 				))
 		},
-		change: function (event) {
+		change (event) {
 			user_key = event.target.value;
 			this.update();
 		}

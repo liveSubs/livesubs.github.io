@@ -35,7 +35,9 @@
 							<label>views</label>
 						</div>
 						<div class="block">
-							<span class="yellow">{{ subs }}</span>
+							<span class="yellow" v-if="subs < 1000">{{ subs }}</span>
+							<span class="yellow" v-if="subs < 1000000 && subs > 1000">{{ subs / 1000 }}k</span>
+							<span class="yellow" v-if="subs < 1000000000 && subs > 1000000">{{ subs / 1000000 }}m</span>
 							<label>Subscribers</label>
 						</div>
 						<div class="block">
