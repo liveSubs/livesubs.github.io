@@ -12,7 +12,7 @@ new Vue ({
 	methods: {
 		update: function () {
 			axios
-				.get('https://www.googleapis.com/youtube/v3/channels?part=statistics&part=snippet&id=' + user_key + '&key=AIzaSyAvRN9xDLUISE5jR0wr92Vmz3Hwl_SvyxM')
+				.get('https://www.googleapis.com/youtube/v3/channels?part=statistics&part=snippet&id=' + user_key + '&key=AIzaSyBzK5GgF-aScjm4MNJh_Fnuugyxowouz-0')
 				.then(response => (
 					this.views = response.data.items[0].statistics.viewCount,
 					this.subs = response.data.items[0].statistics.subscriberCount,
