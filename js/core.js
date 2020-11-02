@@ -11,8 +11,11 @@ new Vue ({
 	},
 	methods: {
 		update () {
+			const string = user_key;
+			const substring = 'https://www.youtube.com/channel/';
+			var user = string.replace(substring,'');
 			axios
-				.get('https://www.googleapis.com/youtube/v3/channels?part=statistics&part=snippet&id=' + user_key + '&key=AIzaSyBzK5GgF-aScjm4MNJh_Fnuugyxowouz-0')
+				.get('https://www.googleapis.com/youtube/v3/channels?part=statistics&part=snippet&id=' + user + '&key=AIzaSyBzK5GgF-aScjm4MNJh_Fnuugyxowouz-0')
 				.then(response => (
 					this.views = response.data.items[0].statistics.viewCount,
 					this.subs = response.data.items[0].statistics.subscriberCount,
